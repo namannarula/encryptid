@@ -85,6 +85,7 @@ router.post("/auth/reg", async (req, res) => {
       const dbPass = user.properties.Password.rich_text[0].text.content;
       const name = user.properties.Name.title[0].plain_text;
       const displayName = user.properties.DisplayName.rich_text[0].text.content;
+      const refCode = user.properties.refCode.rich_text[0].text.content,
       bcrypt.compare(password, dbPass, (err, result) => {
         if (err) {
           return res.send({
@@ -192,6 +193,7 @@ router.post("/auth/reg", async (req, res) => {
           email,
           name,
           displayName,
+          refCode,
         };
         return res.send({
           status: "success",
@@ -311,6 +313,7 @@ router.post("/auth/nc", async (req, res) => {
     const cpassword = req.body.cpassword;
     const name = req.body.name;
     const displayName = req.body.displayName;
+    const refCode = req.body.refCode;
     if (!email || !password || !cpassword) {
       return res.send({
         status: "error",
@@ -445,6 +448,7 @@ router.post("/auth/nc", async (req, res) => {
         email,
         name,
         displayName,
+        refCode,
       };
       return res.send({
         status: "success",
@@ -492,6 +496,7 @@ router.get("/forgot", async (req, res) => {
         name: user.results[0].properties.Name.rich_text[0].text.content,
         displayName:
           user.results[0].properties.displayName.rich_text[0].text.content,
+        refCode: user.results[0].properties.refCode.rich_text[0].text.content,
       };
     } else {
       return res.send({
