@@ -160,6 +160,15 @@ router.post("/auth/reg", async (req, res) => {
                 },
               ],
             },
+            refCode: {
+              rich_text: [
+                {
+                  text: {
+                    content: refCode,
+                  },
+                },
+              ],
+            },
             isAdmin: {
               checkbox: false,
             },
@@ -400,6 +409,15 @@ router.post("/auth/nc", async (req, res) => {
               {
                 text: {
                   content: "0",
+                },
+              },
+            ],
+          },
+          refCode: {
+            rich_text: [
+              {
+                text: {
+                  content: refCode,
                 },
               },
             ],
