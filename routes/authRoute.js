@@ -142,6 +142,15 @@ router.post("/auth/reg", async (req, res) => {
                 },
               ],
             },
+            refCode: {
+              rich_text: [
+                {
+                  text: {
+                    content: refCode,
+                  },
+                },
+              ],
+            },
             currentLevel: {
               rich_text: [
                 {
@@ -302,6 +311,8 @@ router.post("/auth/nc", async (req, res) => {
     const cpassword = req.body.cpassword;
     const name = req.body.name;
     const displayName = req.body.displayName;
+    const refCode = req.body.refCode;
+
     if (!email || !password || !cpassword) {
       return res.send({
         status: "error",
@@ -382,6 +393,15 @@ router.post("/auth/nc", async (req, res) => {
               {
                 text: {
                   content: displayName,
+                },
+              },
+            ],
+          },
+          refCode: {
+            rich_text: [
+              {
+                text: {
+                  content: refCode,
                 },
               },
             ],

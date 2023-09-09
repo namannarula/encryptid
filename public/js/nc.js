@@ -8,13 +8,15 @@ regBtn.addEventListener('click', (e) => {
     const displayName = document.getElementById('displayName').value;
     const password = document.getElementById('password').value;
     const cpassword = document.getElementById('cpassword').value;
+    const refCode = document.getElementById('refCode').value;
 
     const data = {
         email,
         password, 
         cpassword,
         name,
-        displayName
+        displayName,
+        refCode
     }
     fetch('/auth/nc', {
         method: 'POST',
