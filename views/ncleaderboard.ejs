@@ -97,7 +97,7 @@
         <table id="users-table">
             <tr>
                 <th>#</th>
-                <th>Name</th>
+                <th>Display Name</th>
                 <th>Points</th>
             </tr>
             <tbody>
@@ -108,7 +108,7 @@
                         <% if (users[i].points == 1000) { %>
                         <i class="fa-solid fa-user-crown" style="color: white;"></i>
                         <% } %>
-                        <%= users[i].name %></td>
+                        <%= users[i].displayName %></td>
                     <td><%= users[i].points %></td>
                 </tr>
                 <% } %>
